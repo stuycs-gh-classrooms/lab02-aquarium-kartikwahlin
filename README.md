@@ -2,9 +2,9 @@
 # Aquarium Lab
 #### Name:
 #### TableBuddies+™
-- TB+ 0:
-- TB+ 1:
-- TB+ 2:
+- TB+ 0: Richie 
+- TB+ 1: Haocheng
+- TB+ 2: Daniel(not here mon)
 
 ---
 ### Instructions
