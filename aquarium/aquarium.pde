@@ -36,4 +36,8 @@ void keyPressed(){
   if (key=='c'){
    t.addCrab(mouseX); 
   }
+  if (key=='1'){
+   t.addGF(mouseX,mouseY); 
+
+  }
 }

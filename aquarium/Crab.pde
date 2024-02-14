@@ -4,6 +4,7 @@ class Crab extends Animal{
   super(X,Y,Xfast,Yfast,size);
   ySpeed=0;
   y=tankY+tankH-floorH-(size/2);
+  cc= color(200,0,0);
   }//constructor
   
   void display(){
