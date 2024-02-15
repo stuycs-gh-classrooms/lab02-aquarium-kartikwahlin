@@ -3,7 +3,7 @@ class Goldfish extends Animal {
   Goldfish(int X,int Y,int Xfast,int Yfast,int size){
    super(X,Y,Xfast,Yfast,size);
    y=height/2;
-   buffr=int(random(50));
+   buffr=int(random(100));
    cc= color(255,215,0);
   }
  void move(){

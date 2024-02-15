@@ -43,6 +43,10 @@ class Tank{
    creatures.add(new Goldfish(x,y,1,1,10));
    numAnimals+=1;
   }
+  void addTurtle(int x,int y){
+    creatures.add(new Turtle(x,y,1,1,10));
+    numAnimals+=1;
+  }
   
   void moveAnimals(){
    for (int i=0;i<numAnimals;i++){

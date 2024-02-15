@@ -5,6 +5,8 @@ class Animal{
   int ySpeed;
   int hunger;
   int s;
+  int belly;
+  int hungry;
   int aw;
   int ah;
   float ratio;
@@ -14,6 +16,8 @@ class Animal{
     alive=true;
     x=X;
     y=Y;
+    belly=100;
+    hungry=belly;
     xSpeed=Xfast;
     ySpeed=Yfast;
     s=size;
@@ -24,6 +28,8 @@ class Animal{
   } //5Parameter
   Animal(int sx, int sy){
     alive=true;
+    belly=100;
+    hungry=belly;
     x=sx;
     y=sy;
     xSpeed=int(random(1,3));
@@ -35,8 +41,10 @@ class Animal{
   }
   void display(){
    rectMode(CENTER);
+   aw=s*2;
+   ah=s;
    fill(cc);
-   rect(x,y,2*s,s);
+   rect(x,y,aw,ah);
   }
   void move(){
    if (x<=s+tankX||x>=tankX+tankW-s){
@@ -47,6 +55,23 @@ class Animal{
    }
    x+=xSpeed;
    y+=ySpeed;
+  }
+  boolean collisionCheck(int xz, int yz, int sz){
+   if (abs(x-xz)<=s+sz&&abs(y-yz)<=s+sz){
+    return true; 
+   }
+   else{
+     return false;
+   }
+    
+  }//CollCheck
+  void eat(){
+   for (int i=0;i<foods.size();i++){
+    if(collisionCheck((foods.get(i)).xval(),(foods.get(i)).yval(),(foods.get(i)).sval())){
+      
+    }
+   }
+    
   }
   
   

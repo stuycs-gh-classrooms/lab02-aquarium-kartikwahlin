@@ -4,13 +4,15 @@ int tankY = 50;
 int floorH = 100;
 int tankW;
 int tankH;
+int nextNutrition;
 PImage fish;
 PImage crab;
-
+ArrayList<Food> foods = new ArrayList<Food>();
 
 void setup() {
   size(600, 600);
   noStroke();
+  nextNutrition=30;
   tankW = width;
   tankH = height - 50;
   t = new Tank(tankX, tankY, tankW, tankH, floorH);
@@ -38,6 +40,8 @@ void keyPressed(){
   }
   if (key=='1'){
    t.addGF(mouseX,mouseY); 
-
+  }
+    if (key=='2'){
+   t.addTurtle(mouseX,mouseY); 
   }
 }
