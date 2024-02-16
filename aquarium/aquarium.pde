@@ -1,7 +1,7 @@
 /*
 All animals can die if they go without food for too long. They are all different colors.
 Controls: LMB to add food on cursor
-1 to add generic Animal class
+1 to add generic Animal class. This creature can move and starve, but I only have the key to spawn it for testing purposes.
 2 to add Goldfish(these fish will generally stay around the middle and will turn around earlier based on a random #)
 3 to add Fish(these fish move twice as fast in the x direction)
 4 to add Crab(crabs are restricted to the top of the sand)
