@@ -3,6 +3,7 @@ class Fish extends Animal{
   Fish(int X,int Y,int Xfast,int Yfast,int size){
   super(X,Y,Xfast,Yfast,size);
   xSpeed=ySpeed*2;
+  rate=1;
   }//constructor
   
   void display(){

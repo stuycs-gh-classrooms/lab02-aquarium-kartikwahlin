@@ -9,6 +9,7 @@ class Animal{
   int hungry;
   int aw;
   int ah;
+  int rate;
   float ratio;
   color cc;
   boolean alive;
@@ -16,11 +17,12 @@ class Animal{
     alive=true;
     x=X;
     y=Y;
-    belly=100;
+    belly=1000;
     hungry=belly;
     xSpeed=Xfast;
     ySpeed=Yfast;
     s=size;
+    rate=2;
     ah=int(random(2,size));
     aw=int(random(2,size));
     ratio=ah/aw;
@@ -28,8 +30,9 @@ class Animal{
   } //5Parameter
   Animal(int sx, int sy){
     alive=true;
-    belly=100;
+    belly=1000;
     hungry=belly;
+    rate=2;
     x=sx;
     y=sy;
     xSpeed=int(random(1,3));
@@ -45,6 +48,7 @@ class Animal{
    ah=s;
    fill(cc);
    rect(x,y,aw,ah);
+
   }
   void move(){
    if (x<=s+tankX||x>=tankX+tankW-s){
@@ -57,7 +61,7 @@ class Animal{
    y+=ySpeed;
   }
   boolean collisionCheck(int xz, int yz, int sz){
-   if (abs(x-xz)<=s+sz&&abs(y-yz)<=s+sz){
+   if (abs(x-xz)<=s+(sz/2)&&abs(y-yz)<=(s+sz)/2){
     return true; 
    }
    else{
@@ -68,10 +72,29 @@ class Animal{
   void eat(){
    for (int i=0;i<foods.size();i++){
     if(collisionCheck((foods.get(i)).xval(),(foods.get(i)).yval(),(foods.get(i)).sval())){
-      
+      if (hungry+(foods.get(i)).fval()>belly){
+       hungry=belly; 
+
+      }
+      else{
+        hungry += (foods.get(i)).fval();
+      }
+      foods.remove(i);
+      numFoods-=1;
     }
+   }//for
+  }//eat
+  void starve(){
+    hungry=hungry-rate;
+  }//starve
+  boolean die(){
+   if (hungry<=0){
+    alive=false;
+    return true;
    }
-    
+   else{
+     return false;
+  }
   }
   
   

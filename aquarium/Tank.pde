@@ -5,7 +5,6 @@ class Tank{
   int fH;
   int w;
   int numAnimals;//number of animals
-  ArrayList <Animal>creatures = new ArrayList<Animal>();
   Tank(int tankX,int tankY,int tankW,int tankH,int floorH){
     x=tankX;
     y=tankY;
@@ -24,7 +23,14 @@ class Tank{
     for (int i=0;i<numAnimals;i++){
       (creatures.get(i)).display();
     }
+    for (int i=0;i<numFoods;i++){
+      (foods.get(i)).display();
+    }
   }//display
+  void addFood(int x,int y){
+   foods.add(new Food(x,y)); 
+   numFoods+=1;
+  }
   void addAnimal(int x,int y){
     creatures.add(new Animal(x,y,1,1,10));
     numAnimals+=1;
@@ -48,9 +54,22 @@ class Tank{
     numAnimals+=1;
   }
   
-  void moveAnimals(){
+  void moveAnimals(){ //Runs all animal life functions
    for (int i=0;i<numAnimals;i++){
      (creatures.get(i)).move();
+   }
+   for (int i=0;i<numFoods;i++){
+     (foods.get(i)).move();
+   }
+   for (int i=0;i<numAnimals;i++){
+     (creatures.get(i)).eat();
+   }
+   for (int i=0;i<numAnimals;i++){
+     (creatures.get(i)).starve();
+     if((creatures.get(i)).die()){
+       creatures.remove(i);
+       numAnimals-=1;
+     }
    }
   }//moveAnimals
   
